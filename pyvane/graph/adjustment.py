@@ -106,6 +106,7 @@ def simplify(graph, use_old_method=False, verbose=False):
 
         graph_simple[node1_idx][node2_idx][key]['path'] = new_path
 
+    print('Graph is simplified')
     return graph_simple
 
 def draw_line_nd_old(p1, p2):
@@ -115,7 +116,7 @@ def draw_line_nd_old(p1, p2):
     vet = p2 - p1
     t = np.linspace(0, 1, 1000)
     seg = p1 + vet*np.array([t]).T
-    seg = np.round(seg).astype(np.int)
+    seg = np.round(seg).astype(int)
 
     new_seg = [seg[0]]
     for j in range(1,len(seg)):

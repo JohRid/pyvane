@@ -152,7 +152,7 @@ class Image:
     def to_float(self):
         """Convert data type to np.float"""
 
-        self.data = self.data.astype(np.float)
+        self.data = self.data.astype(float)
 
     def unique(self):
         """Return unique values in the image.
