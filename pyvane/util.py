@@ -6,10 +6,10 @@ import scipy.ndimage as ndi
 import numpy as np
 import networkx as nx
 
-try:
+'''try:
     import igraph
 except ImportError:
-    print('igraph not found, will not be able to convert graphs to igraph format.')
+    print('igraph not found, will not be able to convert graphs to igraph format.')'''
 
 class PriorityQueue:
     """Priority queue that allows changes to, or removal of, elements of a pending task.

@@ -35,8 +35,6 @@ def skeletonize(img_bin, num_threads=1, verbosity=0):
     extracting medial lines. Pattern Recognition Letters 19, 613–627.
     """
 
-    print('Skeletonizing image...')
-
     if tuple(img_bin.unique()) != (0, 1):
         raise ValueError('Image must only have values 0 and 1')
 
@@ -56,7 +54,8 @@ def skeletonize(img_bin, num_threads=1, verbosity=0):
 
     img_data_res = np.zeros([size_z, size_x, size_y], dtype=np.uint16)
 
-    print('Sending data to C library...')
+    if verbosity > 0:
+        print('Sending data to C library...')
 
     libskeleton.skel_interface(img_data.ctypes.data_as(ct.POINTER(ct.c_ushort)),
                       img_data_res.ctypes.data_as(ct.POINTER(ct.c_ushort)),
@@ -67,6 +66,7 @@ def skeletonize(img_bin, num_threads=1, verbosity=0):
 
     img_res = Image(img_data_res.astype(np.uint8), img_bin.path, pix_size=img_bin.pix_size)
 
-    print('Skeletonization done')
+    if verbosity > 0:
+        print('Skeletonization done')
 
     return img_res

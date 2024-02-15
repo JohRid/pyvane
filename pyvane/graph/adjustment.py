@@ -106,7 +106,8 @@ def simplify(graph, use_old_method=False, verbose=False):
 
         graph_simple[node1_idx][node2_idx][key]['path'] = new_path
 
-    print('Graph is simplified')
+    if verbose > 0:
+        print('Graph has been simplified')
     return graph_simple
 
 def draw_line_nd_old(p1, p2):
